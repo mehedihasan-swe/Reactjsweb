@@ -11,6 +11,7 @@ const ustyle=makeStyles({
     position:'absolute',
     width:'320px',
     height:'100%',
+    left:'0',
     backgroundColor:'#253053'
   }
 })
@@ -18,12 +19,10 @@ const ustyle=makeStyles({
 
 export default function Sidebar() {
 const classes=ustyle();
- console.log(' :', classes);
-  
   return (
     <div className={classes.Sidebar}>
 
-      
+
     </div>
    
   )
