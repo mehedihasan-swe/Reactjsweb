@@ -16,7 +16,7 @@ function App() {
     <div className={classes.appMain}>
       <Sidebar></Sidebar>
       <Header></Header>
-      <CssBaseline></CssBaseline>
+      <CssBaseline/>
     </div>
     
   );
