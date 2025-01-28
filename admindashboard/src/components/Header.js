@@ -1,34 +1,49 @@
-import { AppBar, Badge, Box, InputBase, Stack, Toolbar } from '@mui/material'
+import { AppBar, Box, InputBase, Stack, Toolbar } from '@mui/material'
 import React from 'react'
 import MailIcon from '@mui/icons-material/Mail';
 import LogoutIcon from '@mui/icons-material/Logout';
 import FaceIcon from '@mui/icons-material/Face';
+import { IconButton } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import { makeStyles } from '@mui/styles';
+
+
+const useStyles=makeStyles({
+  root:{
+    backgroundColor: '#ffffff !important',
+  }
+})
 
 
 export default function Header() {
+    
+const classes=useStyles();
+
   return (
     <>
-
-      <AppBar position='static'>
+      <AppBar className={classes.root}  position='static'>
 
         <Toolbar>
-          <Box sx={{ flexGrow: 1, backgroundColor: 'primary.main', px: 2 }}>
+          <Box sx={{ flexGrow: 1, px: 2 }}>
             <Stack direction='row' justifyContent='space-between' alignItems='center'>
               <Box>
-                <InputBase />
+                <InputBase
+                placeholder='Search holder'
+                startAdornment={<SearchIcon fontSize='small'/>}
+                />
               </Box>
               <Box sx={{ display: 'flex', gap: '15px' }}>
-                <Badge badgeContent={0} color="secondary">
+                <IconButton>
                   <MailIcon />
-                </Badge>
+                </IconButton>
 
-                <Badge color="secondary">
+                <IconButton>
                   <LogoutIcon />
-                </Badge>
+                </IconButton>
 
-                <Badge color="secondary">
+                <IconButton>
                   <FaceIcon />
-                </Badge>
+                </IconButton>
               </Box>
 
             </Stack>

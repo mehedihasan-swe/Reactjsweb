@@ -4,14 +4,16 @@ import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import { makeStyles } from '@mui/styles';
-const useStyles=makeStyles({
+
+
+const ustyle=makeStyles({
   appMain:{
     paddingLeft:'320px',
     width:'100%'
   }
 })
 function App() {
-  const classes=useStyles()
+  const classes=ustyle()
   return (
     <div className={classes.appMain}>
       <Sidebar></Sidebar>
