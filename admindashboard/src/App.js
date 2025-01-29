@@ -4,7 +4,8 @@ import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import { makeStyles } from '@mui/styles';
-
+import Pageheader from './components/Pageheader';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 
 // you can override default theme by this create theme 
 
@@ -30,18 +31,26 @@ const ustyle=makeStyles({
     width:'100%'
   }
 })
+
 function App() {
+
   const classes=ustyle()
+
   return (
+
     <ThemeProvider theme={theme}>
      <Sidebar></Sidebar>
-    <div className={classes.appMain}>
-      <Header/>
-    </div>
+      <div className={classes.appMain}>
+        <Header/>
+        <Pageheader 
+        title="PgeHeader is Live" 
+        subtitle="SubTitle is on"
+        icon={<PermIdentityIcon/>}
+        />
+      </div>
     <CssBaseline/>
     </ThemeProvider>
-   
-    
+
   );
 }
 

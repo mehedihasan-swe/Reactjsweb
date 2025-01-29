@@ -14,6 +14,7 @@ import { makeStyles } from '@mui/styles';
 const useStyles=makeStyles({
   root:{
     backgroundColor: '#ffffff !important',
+    marginBottom:'15px'
   },
   searchInput:{
     opacity:'0.6',
