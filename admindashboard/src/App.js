@@ -10,6 +10,7 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 // you can override default theme by this create theme 
 
 const theme = createTheme({
+
   palette: {
     primary: {
       main: "#333996",
@@ -22,7 +23,23 @@ const theme = createTheme({
     background: {
       default: "#f4f5fd"
     },
-  }
+  },
+ 
+  components: {
+    MuiIconButton: {
+      defaultProps: {
+        disableRipple: true, // Ripple effect বন্ধ
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          transform: "translateZ(0)", // সঠিকভাবে স্ট্রিং হিসেবে ব্যবহার করা হয়েছে
+        },
+      },
+    },
+  },
+
 })
 
 const ustyle=makeStyles({
