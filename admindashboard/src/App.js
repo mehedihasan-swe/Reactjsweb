@@ -4,8 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import { makeStyles } from '@mui/styles';
-import Pageheader from './components/Pageheader';
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import Employee from './pages/Employees/Employee';
 
 // you can override default theme by this create theme 
 
@@ -28,13 +27,13 @@ const theme = createTheme({
   components: {
     MuiIconButton: {
       defaultProps: {
-        disableRipple: true, // Ripple effect বন্ধ
+        disableRipple: true, 
       },
     },
     MuiAppBar: {
       styleOverrides: {
         root: {
-          transform: "translateZ(0)", // সঠিকভাবে স্ট্রিং হিসেবে ব্যবহার করা হয়েছে
+          transform: "translateZ(0)", 
         },
       },
     },
@@ -59,11 +58,7 @@ function App() {
      <Sidebar></Sidebar>
       <div className={classes.appMain}>
         <Header/>
-        <Pageheader 
-        title="PgeHeader is Live" 
-        subtitle="SubTitle is on"
-        icon={<PermIdentityIcon/>}
-        />
+        <Employee/>
       </div>
     <CssBaseline/>
     </ThemeProvider>
