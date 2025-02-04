@@ -1,9 +1,7 @@
 
-import { Box, Grid2,TextField } from '@mui/material';
+import { Box, FormControl, FormControlLabel, FormLabel, Grid2,Radio,RadioGroup,TextField } from '@mui/material';
 
 import Useform, { Form } from '../../components/Useform';
-
-
 
 const initaialValue = {
     id: '',
@@ -11,7 +9,7 @@ const initaialValue = {
     email: '',
     mobile: '',
     city: '',
-    gender: 'male',
+    gender: "Male",
     departmentId: '',
     hireDate: new Date(),
     isPermanent: false
@@ -19,9 +17,9 @@ const initaialValue = {
 
 export default function EmployeeForm() {
 
-
     const { values, handleInput } = Useform(initaialValue)
-
+    
+    console.log(' :', values.gender);
     return (
         <>
             <Form>
@@ -51,6 +49,17 @@ export default function EmployeeForm() {
                             </Grid2>
                         </Grid2>
                         <Grid2 size={5}>
+                            <FormControl>
+                                <FormLabel>{values.gender}</FormLabel>
+                                <RadioGroup row
+                                 name="gender"
+                                 value={values.gender}
+                                 onChange={handleInput}>
+                                    <FormControlLabel value="Male" control={<Radio/>} label="Male" />
+                                    <FormControlLabel value="Female" control={<Radio/>} label="Female"/>
+                                    <FormControlLabel value="Other" control={<Radio/>} label="Other"/>
+                                </RadioGroup>
+                            </FormControl>
 
                         </Grid2>
                     </Grid2>
