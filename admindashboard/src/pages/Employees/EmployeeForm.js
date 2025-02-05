@@ -3,6 +3,7 @@ import { Box,Grid2} from '@mui/material';
 
 import Useform, { Form } from '../../components/Useform';
 import { Control } from '../../controls/control/Control';
+import *as EmployeeServices from '../../service/EmployeeServices';
 
 const genderItems=[
 {
@@ -14,6 +15,7 @@ const genderItems=[
 {
      id:'Other', title: 'Other'
 }
+
 ]
 
 const initaialValue = {
@@ -29,7 +31,7 @@ const initaialValue = {
 }
 
 export default function EmployeeForm() {
-
+   
     const { values, handleInput } = Useform(initaialValue)
     
     console.log(' :', values.gender);
@@ -68,6 +70,14 @@ export default function EmployeeForm() {
                                 value={values.gender}
                                 onChange={handleInput}
                                 items={genderItems}
+                            />
+                            <Control.Selects
+                            name="gender"
+                            label="Gender"
+                            value={values.gender}
+                            onChange={handleInput}
+                            options={EmployeeServices.getDepartments()}
+                           
                             />
                         </Grid2>
                     </Grid2>

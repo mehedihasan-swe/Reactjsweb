@@ -1,5 +1,5 @@
 
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material'
+import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup as MuiRadioGroup } from '@mui/material'
 import React from 'react'
 
 export default function RadioGroups(props) {
@@ -10,7 +10,7 @@ export default function RadioGroups(props) {
 
             <FormControl>
                 <FormLabel>{label}</FormLabel>
-                <RadioGroup row
+                <MuiRadioGroup row
                     name={name}
                     value={value}
                     onChange={onChange}>
@@ -20,7 +20,7 @@ export default function RadioGroups(props) {
                                 <FormControlLabel value={item.id} control={<Radio />} label={item.title}/>
                             ))
                     }
-                </RadioGroup>
+                </MuiRadioGroup>
             </FormControl>
 
         </>
