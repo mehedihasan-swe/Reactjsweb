@@ -1,8 +1,23 @@
 
-import { Box, FormControl, FormControlLabel, FormLabel, Grid2,Radio,RadioGroup,TextField } from '@mui/material';
+import { Box,Grid2} from '@mui/material';
 
 import Useform, { Form } from '../../components/Useform';
+import { Control } from '../../controls/control/Control';
 
+
+const genderItems=[
+{
+    id:'Male', title: 'Male'
+},
+{
+    id:"Female", tiltle:"Female"
+},
+{
+    id:"Other", tiltle:"Other"
+}
+
+
+]
 const initaialValue = {
     id: '',
     fullName: '',
@@ -28,38 +43,36 @@ export default function EmployeeForm() {
                         <Grid2 size={7}>
                             <Grid2 container rowSpacing={1} columnSpacing={3}>
                                 <Grid2 size={{ xs: 12, md: 10 }}>
-                                    <TextField
-                                        variant='outlined'
-                                        name="fullName"
-                                        label="Full Name"
-                                        value={values.fullName}
-                                        onChange={handleInput}
+                                   
+                                    <Control.Input
+                                    name="fullName"
+                                    label="FullName"
+                                    value={values.fullName}
+                                    onChange={handleInput}
                                     />
-
                                 </Grid2>
+
                                 <Grid2 size={{ xs: 12, md: 10 }}>
-                                    <TextField
-                                        variant='outlined'
-                                        name='email'
-                                        label="Email"
-                                        value={values.email}
-                                        onChange={handleInput}
+
+                                <Control.Input
+                                    name="email"
+                                    label="Email"
+                                    value={values.email}
+                                    onChange={handleInput}
                                     />
+                                    
                                 </Grid2>
                             </Grid2>
                         </Grid2>
                         <Grid2 size={5}>
-                            <FormControl>
-                                <FormLabel>{values.gender}</FormLabel>
-                                <RadioGroup row
-                                 name="gender"
-                                 value={values.gender}
-                                 onChange={handleInput}>
-                                    <FormControlLabel value="Male" control={<Radio/>} label="Male" />
-                                    <FormControlLabel value="Female" control={<Radio/>} label="Female"/>
-                                    <FormControlLabel value="Other" control={<Radio/>} label="Other"/>
-                                </RadioGroup>
-                            </FormControl>
+
+                            <Control.RadioGroups
+                                name="gender"
+                                label="Gender"
+                                value={values.gender}
+                                onChange={handleInput}
+                                items={genderItems}
+                            />
 
                         </Grid2>
                     </Grid2>
