@@ -6,7 +6,7 @@ export default function Selects(props) {
     return (
         <>
             <FormControl>
-                <InputLabel>Age</InputLabel>
+                <InputLabel>{label}</InputLabel>
                 <Select
                     name={name}
                     label={label}

@@ -25,7 +25,7 @@ const initaialValue = {
     mobile: '',
     city: '',
     gender: "Male",
-    departmentId: '',
+    department: '',
     hireDate: new Date(),
     isPermanent: false
 }
@@ -72,9 +72,9 @@ export default function EmployeeForm() {
                                 items={genderItems}
                             />
                             <Control.Selects
-                            name="gender"
-                            label="Gender"
-                            value={values.gender}
+                            name="department"
+                            label="Department"
+                            value={values.department}
                             onChange={handleInput}
                             options={EmployeeServices.getDepartments()}
                            
