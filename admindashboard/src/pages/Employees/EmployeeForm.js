@@ -71,14 +71,19 @@ export default function EmployeeForm() {
                                 onChange={handleInput}
                                 items={genderItems}
                             />
-                            <Control.Selects
+                            <Control.Selects 
                             name="department"
                             label="Department"
                             value={values.department}
                             onChange={handleInput}
                             options={EmployeeServices.getDepartments()}
-                           
                             />
+                            <Control.CheckBox
+                            name="isPermanent"
+                            label="isPermanent"
+                            value={values.isPermanent}
+                            onChange={handleInput} />
+
                         </Grid2>
                     </Grid2>
                 </Box>
