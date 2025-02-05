@@ -4,20 +4,18 @@ import { Box,Grid2} from '@mui/material';
 import Useform, { Form } from '../../components/Useform';
 import { Control } from '../../controls/control/Control';
 
-
 const genderItems=[
 {
     id:'Male', title: 'Male'
 },
 {
-    id:"Female", tiltle:"Female"
+     id:'Female', title: 'Female'
 },
 {
-    id:"Other", tiltle:"Other"
+     id:'Other', title: 'Other'
 }
-
-
 ]
+
 const initaialValue = {
     id: '',
     fullName: '',
@@ -40,7 +38,7 @@ export default function EmployeeForm() {
             <Form>
                 <Box sx={{ width: '100%' }}>
                     <Grid2 container rowSpacing={1} columnSpacing={3}>
-                        <Grid2 size={7}>
+                        <Grid2 size={{xs:12, md:7}}>
                             <Grid2 container rowSpacing={1} columnSpacing={3}>
                                 <Grid2 size={{ xs: 12, md: 10 }}>
                                    
@@ -53,7 +51,6 @@ export default function EmployeeForm() {
                                 </Grid2>
 
                                 <Grid2 size={{ xs: 12, md: 10 }}>
-
                                 <Control.Input
                                     name="email"
                                     label="Email"
@@ -64,8 +61,7 @@ export default function EmployeeForm() {
                                 </Grid2>
                             </Grid2>
                         </Grid2>
-                        <Grid2 size={5}>
-
+                        <Grid2 size={{xs:12, md:5}}>
                             <Control.RadioGroups
                                 name="gender"
                                 label="Gender"
@@ -73,7 +69,6 @@ export default function EmployeeForm() {
                                 onChange={handleInput}
                                 items={genderItems}
                             />
-
                         </Grid2>
                     </Grid2>
                 </Box>
