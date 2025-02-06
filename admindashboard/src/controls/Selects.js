@@ -5,7 +5,7 @@ export default function Selects(props) {
     const { name, label, value, onChange, options } = props
     return (
         <>
-            <FormControl>
+            <FormControl sx={{marginTop:'10px'}}>
                 <InputLabel>{label}</InputLabel>
                 <Select
                     name={name}
@@ -18,7 +18,6 @@ export default function Selects(props) {
                         <em>None</em>
                     </MenuItem>
                     {
-
                         options.map((mitem) => (
                             <MenuItem key={mitem.id} value={mitem.id}>{mitem.title}</MenuItem>
                         ))

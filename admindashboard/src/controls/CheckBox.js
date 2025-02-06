@@ -10,12 +10,14 @@ export default function CheckBox(props) {
     })
   return (
     <>
-       <FormControl>
+       <FormControl sx={{marginTop:'10px'}}>
             <FormControlLabel
                 control={<MuiCheckbox checked={value} name={name} onChange={e=>onChange(etarget(name, e.target.checked))}/>}
                 label={label}
             />
+            
         </FormControl>
     </>
   )
 }
+

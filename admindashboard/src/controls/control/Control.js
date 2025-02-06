@@ -1,3 +1,4 @@
+import Buttons from "../Buttons";
 import CheckBox from "../CheckBox";
 import Input from "../Input";
 import RadioGroups from "../RadioGroups";
@@ -7,5 +8,6 @@ export const Control={
     Input,
     RadioGroups,
     Selects,
-    CheckBox
+    CheckBox,
+    Buttons
 }

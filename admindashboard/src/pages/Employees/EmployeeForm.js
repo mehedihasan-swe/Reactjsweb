@@ -59,7 +59,22 @@ export default function EmployeeForm() {
                                     value={values.email}
                                     onChange={handleInput}
                                     />
-                                    
+                                </Grid2>
+                                <Grid2 size={{ xs: 12, md: 10 }}>
+                                   <Control.Input
+                                    name="mobile"
+                                    label="mobile"
+                                    value={values.mobile}
+                                    onChange={handleInput}
+                                    />
+                                </Grid2>
+                                <Grid2 size={{ xs: 12, md: 10 }}>
+                                   <Control.Input
+                                    name="city"
+                                    label="city"
+                                    value={values.city}
+                                    onChange={handleInput}
+                                    />
                                 </Grid2>
                             </Grid2>
                         </Grid2>
@@ -84,6 +99,12 @@ export default function EmployeeForm() {
                             value={values.isPermanent}
                             onChange={handleInput} />
 
+                            <Box display={'flex'} gap={2} marginTop={2}>
+                            <Control.Buttons
+                             text="Submit"
+                             type="submit"
+                            />
+                            </Box>
                         </Grid2>
                     </Grid2>
                 </Box>
