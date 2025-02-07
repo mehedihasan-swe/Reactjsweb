@@ -35,8 +35,8 @@ const initaialValue = {
 export default function EmployeeForm() {
 
     const { values, handleInput } = Useform(initaialValue)
-
-    console.log(' :', values.gender);
+    // const { values, handleInput } = Useform(initaialValue)-> Useform.js Theke রিটার্ন করার মাধ্যমে স্টেট শেয়ার করা হচ্ছে:
+    
     return (
         <>
             <Form>
