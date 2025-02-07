@@ -12,6 +12,8 @@ export default function Input(props) {
                 label={label}
                 value={value}
                 onChange={onChange}
+                error
+                helperText="some error"
             />
 
         </>
