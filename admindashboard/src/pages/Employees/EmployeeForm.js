@@ -33,24 +33,29 @@ const initaialValue = {
 }
 
 export default function EmployeeForm() {
-    const validate = () => {
+    const validate = (fildvalidate=values) => {
+        
         let temp = {...errors}
-        temp.fullName = values.fullName ? "" : "This Fild is required"
-        temp.email = (/$^|.+@.+..+/).test(values.email) ? "" : "Email is not valid."
-        temp.mobile = values.mobile.length > 9 ? "" : "Minimum 11 numbers required."
-        temp.department = values.department ? "" : "This Fild is required"
+        if('fullName' in fildvalidate)
+        temp.fullName = fildvalidate.fullName ? "" : "This Fild is required"
+        if('email' in fildvalidate)
+        temp.email = (/$^|.+@.+..+/).test(fildvalidate.email) ? "" : "Email is not valid."
+        if('mobile' in fildvalidate)
+        temp.mobile = fildvalidate.mobile.length > 9 ? "" : "Minimum 11 numbers required."
+        if('department' in fildvalidate)
+        temp.department = fildvalidate.department ? "" : "This Fild is required"
 
         seterrors(
             { 
             ...temp 
             }
         )
-
+        if(fildvalidate===values)
         return Object.values(temp).every(x=> x === "") 
 
     }
 
-    const { values, handleInput, errors, seterrors } = Useform(initaialValue)
+    const { values, handleInput, errors, seterrors, resetForm, } = Useform(initaialValue,true,validate)
     // const { values, handleInput } = Useform(initaialValue)-> Useform.js Theke রিটার্ন করার মাধ্যমে স্টেট শেয়ার করা হচ্ছে:
     
 
@@ -58,7 +63,7 @@ export default function EmployeeForm() {
         e.preventDefault()
         console.log(' :', validate());
         if(validate())
-        window.alert("testing Project")
+        window.alert("Your Form Is Validated")
     }
 
 
@@ -136,6 +141,10 @@ export default function EmployeeForm() {
                                 <Control.Buttons
                                     text="Submit"
                                     type="submit"
+                                />
+                                <Control.Buttons
+                                    text="Reset"
+                                    onClick={resetForm}
                                 />
                             </Box>
 

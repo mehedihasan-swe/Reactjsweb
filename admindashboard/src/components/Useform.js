@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { makeStyles } from '@mui/styles';
 import { Paper } from "@mui/material";
-export default function Useform(initaialValue) {
+export default function Useform(initaialValue, validateOnchange=false,validate) {
 
     const [values, setValue] = useState(initaialValue)
     const [errors,seterrors]=useState({})
@@ -12,6 +12,13 @@ export default function Useform(initaialValue) {
             ...values,
             [name]: value
         })
+
+        if(validateOnchange)
+            validate({[name]:value})
+    }
+    const resetForm=()=>{
+        setValue(initaialValue)
+        seterrors({})
     }
 
   return {
@@ -19,7 +26,8 @@ export default function Useform(initaialValue) {
     setValue,
     handleInput,
     errors,
-    seterrors
+    seterrors,
+    resetForm
   }
 }
 
