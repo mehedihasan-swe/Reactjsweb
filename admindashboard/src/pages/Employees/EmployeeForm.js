@@ -33,22 +33,31 @@ const initaialValue = {
 }
 
 export default function EmployeeForm() {
-
-
-    const { values, handleInput, errors, seterrors } = Useform(initaialValue)
-    // const { values, handleInput } = Useform(initaialValue)-> Useform.js Theke রিটার্ন করার মাধ্যমে স্টেট শেয়ার করা হচ্ছে:
     const validate = () => {
-        let temp = {}
+        let temp = {...errors}
         temp.fullName = values.fullName ? "" : "This Fild is required"
         temp.email = (/$^|.+@.+..+/).test(values.email) ? "" : "Email is not valid."
         temp.mobile = values.mobile.length > 9 ? "" : "Minimum 11 numbers required."
         temp.department = values.department.length !== 0 ? "" : "This Fild is required"
 
-        seterrors({ ...temp })
+        seterrors(
+            { 
+            ...temp 
+            }
+        )
+
+        return Object.values(temp).every(x=> x === "") 
 
     }
 
-    const handleSubmit = () => {
+    const { values, handleInput, errors, seterrors } = Useform(initaialValue)
+    // const { values, handleInput } = Useform(initaialValue)-> Useform.js Theke রিটার্ন করার মাধ্যমে স্টেট শেয়ার করা হচ্ছে:
+    
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        console.log(' :', validate());
+        if(validate())
         window.alert("testing Project")
     }
 

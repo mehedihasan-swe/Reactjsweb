@@ -4,7 +4,7 @@ import { Paper } from "@mui/material";
 export default function Useform(initaialValue) {
 
     const [values, setValue] = useState(initaialValue)
-    const {errors,seterrors}=useState({})
+    const [errors,seterrors]=useState({})
 
     const handleInput = e => {
         const { name, value } = e.target
