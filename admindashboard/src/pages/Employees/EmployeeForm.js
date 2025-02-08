@@ -34,12 +34,28 @@ const initaialValue = {
 
 export default function EmployeeForm() {
 
-    const { values, handleInput } = Useform(initaialValue)
+
+    const { values, handleInput, errors, seterrors } = Useform(initaialValue)
     // const { values, handleInput } = Useform(initaialValue)-> Useform.js Theke রিটার্ন করার মাধ্যমে স্টেট শেয়ার করা হচ্ছে:
-    
+    const validate = () => {
+        let temp = {}
+        temp.fullName = values.fullName ? "" : "This Fild is required"
+        temp.email = (/$^|.+@.+..+/).test(values.email) ? "" : "Email is not valid."
+        temp.mobile = values.mobile.length > 9 ? "" : "Minimum 11 numbers required."
+        temp.department = values.department.length !== 0 ? "" : "This Fild is required"
+
+        seterrors({ ...temp })
+
+    }
+
+    const handleSubmit = () => {
+        window.alert("testing Project")
+    }
+
+
     return (
         <>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Box sx={{ width: '100%' }}>
                     <Grid2 container rowSpacing={1} columnSpacing={3}>
                         <Grid2 size={{ xs: 12, md: 7 }}>
@@ -100,16 +116,16 @@ export default function EmployeeForm() {
                                 label="isPermanent"
                                 value={values.isPermanent}
                                 onChange={handleInput} />
-
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <DatePicker />
+                            </LocalizationProvider>
                             <Box display={'flex'} gap={2} marginTop={2}>
                                 <Control.Buttons
                                     text="Submit"
                                     type="submit"
                                 />
                             </Box>
-                            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                <DatePicker />
-                            </LocalizationProvider>
+
                         </Grid2>
                     </Grid2>
                 </Box>

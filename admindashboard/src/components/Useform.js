@@ -4,6 +4,7 @@ import { Paper } from "@mui/material";
 export default function Useform(initaialValue) {
 
     const [values, setValue] = useState(initaialValue)
+    const {errors,seterrors}=useState({})
 
     const handleInput = e => {
         const { name, value } = e.target
@@ -16,7 +17,9 @@ export default function Useform(initaialValue) {
   return {
     values,
     setValue,
-    handleInput
+    handleInput,
+    errors,
+    seterrors
   }
 }
 
@@ -32,8 +35,10 @@ const useStyles = makeStyles(theme => ({
 
 export function Form(props) {
     const classes = useStyles()
+
+    const {children, ...other}=props
     return (
-        <form autoComplete="off">
+        <form autoComplete="off" {...other}>
              <Paper className={classes.paperSpacing}>
              {props.children}
              </Paper>
