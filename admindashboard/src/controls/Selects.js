@@ -1,11 +1,12 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
+import { FormControl, FormHelperText, InputLabel, MenuItem, Select } from '@mui/material'
 import React from 'react'
 
 export default function Selects(props) {
-    const { name, label, value, onChange, options } = props
+    const { name, label, value,error=null, onChange, options } = props
     return (
         <>
-            <FormControl sx={{marginTop:'10px'}}>
+            <FormControl sx={{ marginTop: '10px' }} error={error}>
+              
                 <InputLabel>{label}</InputLabel>
                 <Select
                     name={name}
@@ -22,9 +23,10 @@ export default function Selects(props) {
                             <MenuItem key={mitem.id} value={mitem.id}>{mitem.title}</MenuItem>
                         ))
                     }
-
+                    
 
                 </Select>
+                {(error && <FormHelperText>{error}</FormHelperText>)}
             </FormControl>
         </>
     )

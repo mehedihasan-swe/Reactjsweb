@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Input(props) {
 
-    const { name, label, value, onChange } = props
+    const { name, label, value, error=null, onChange } = props
     return (
         <>
             <TextField
@@ -12,8 +12,7 @@ export default function Input(props) {
                 label={label}
                 value={value}
                 onChange={onChange}
-                error
-                helperText="some error"
+                {...(error && {error:true,helperText:error})}
             />
 
         </>

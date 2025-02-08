@@ -38,7 +38,7 @@ export default function EmployeeForm() {
         temp.fullName = values.fullName ? "" : "This Fild is required"
         temp.email = (/$^|.+@.+..+/).test(values.email) ? "" : "Email is not valid."
         temp.mobile = values.mobile.length > 9 ? "" : "Minimum 11 numbers required."
-        temp.department = values.department.length !== 0 ? "" : "This Fild is required"
+        temp.department = values.department ? "" : "This Fild is required"
 
         seterrors(
             { 
@@ -76,6 +76,7 @@ export default function EmployeeForm() {
                                         label="FullName"
                                         value={values.fullName}
                                         onChange={handleInput}
+                                        error={errors.fullName}
                                     />
                                 </Grid2>
 
@@ -85,6 +86,7 @@ export default function EmployeeForm() {
                                         label="Email"
                                         value={values.email}
                                         onChange={handleInput}
+                                        error={errors.email}
                                     />
                                 </Grid2>
                                 <Grid2 size={{ xs: 12, md: 10 }}>
@@ -93,6 +95,7 @@ export default function EmployeeForm() {
                                         label="mobile"
                                         value={values.mobile}
                                         onChange={handleInput}
+                                        error={errors.mobile}
                                     />
                                 </Grid2>
                                 <Grid2 size={{ xs: 12, md: 10 }}>
@@ -119,6 +122,7 @@ export default function EmployeeForm() {
                                 value={values.department}
                                 onChange={handleInput}
                                 options={EmployeeServices.getDepartments()}
+                                error={errors.department}
                             />
                             <Control.CheckBox
                                 name="isPermanent"
